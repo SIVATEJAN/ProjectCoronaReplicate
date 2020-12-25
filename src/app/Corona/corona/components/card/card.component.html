@@ -1,0 +1,17 @@
+<div class="card card-styles">
+  <div class="mini-label">{{ miniLabel }}</div>
+  <div class="remaining">
+    <div class="mini-label-value">{{ miniLabelValue | number }}</div>
+    <div class="mini-label-content">{{ miniLabelContent }}</div>
+    <div class="row m-4">
+      <div class="col-6">
+        <div class="sub-mini-label-value mild-or-reco">{{mildOrReco | number}}</div>
+        <div class="sub-mini-label-content">{{mildOrRecoContent}}</div>
+      </div>
+      <div class="col-6">
+        <div class="sub-mini-label-value cric-or-dead">{{cricOrDead | number}}</div>
+        <div class="sub-mini-label-content">{{cricOrDeadContent}}</div>
+      </div>
+    </div>
+  </div>
+</div>

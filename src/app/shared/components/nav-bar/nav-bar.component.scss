@@ -1,0 +1,19 @@
+.navbar-item {
+  margin-left: 100px;
+}
+
+.nav-btns {
+  color: darkgray;
+
+  &:hover {
+    color: black;
+    background-color: white;
+    outline: none;
+  }
+}
+
+
+.sel-nav-btns {
+  color: green;
+  font-weight: 700;
+}

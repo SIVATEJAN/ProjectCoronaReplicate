@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="nav-header d-flex mt-3">
+    <div class="nav-logo">
+      <img src="../../../../assets/worldometers-logo.gif" alt="World O meter" class="logo-img">
+    </div>
+    <div class="navbar-items d-flex">
+      <div class="navbar-item">
+        <button
+        [ngClass]="isCorSelected ? 'btn btn-light sel-nav-btns' : 'btn btn-light nav-btns'"
+        (click)="btnClicked('corona')">Corona Virus</button>
+      </div>
+      <div class="navbar-item">
+        <button
+        [ngClass]="isPopSelected ? 'btn btn-light sel-nav-btns' : 'btn btn-light nav-btns'"
+        (click)="btnClicked('pop')">Population</button>
+      </div>
+    </div>
+  </div>
+</div>

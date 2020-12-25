@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="container-header text-center f-20 dark-grey-color p-2">
+    Covid 19 Corona virus Pandemic
+  </div>
+  <div class="last-updated-date text-center">
+    Last updated :
+    <span>{{
+      updatedDate
+        ? monthNames[updatedDate.getMonth()] +
+          " " +
+          updatedDate.getDate() +
+          ", " +
+          updatedDate.getFullYear()
+        : ""
+    }}</span>
+  </div>
+  <div class="total-cases">
+    <div class="label">Corona Virus Cases :</div>
+    <div class="label-value cases">{{ overallView.cases | number }}</div>
+  </div>
+  <div class="total-cases">
+    <div class="label">Deaths :</div>
+    <div class="label-value deaths">{{ overallView.deaths | number }}</div>
+  </div>
+  <div class="total-cases">
+    <div class="label">Recovered :</div>
+    <div class="label-value recovered">
+      {{ overallView.recovered | number }}
+    </div>
+  </div>
+  <div class="active-labels row">
+    <div class="col-6">
+      <app-card
+        [miniLabel]="'ACTIVE CASES'"
+        [miniLabelValue]="overallView.active"
+        [miniLabelContent]="'Currently Infected Patients'"
+        [mildOrReco]="mildCases"
+        [cricOrDead]="overallView.critical"
+        [mildOrRecoContent]="'in Mild Condition'"
+        [cricOrDeadContent]="'Serious or Critical'"
+      ></app-card>
+    </div>
+    <div class="col-6">
+      <app-card
+        [miniLabel]="'CLOSED CASES'"
+        [miniLabelValue]="closedCases"
+        [miniLabelContent]="'Cases which had an outcome:'"
+        [mildOrReco]="overallView.recovered"
+        [cricOrDead]="overallView.deaths"
+        [mildOrRecoContent]="'Recovered / Discharged'"
+        [cricOrDeadContent]="'Deaths'"
+      ></app-card>
+    </div>
+  </div>
+</div>

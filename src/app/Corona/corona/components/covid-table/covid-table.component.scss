@@ -1,0 +1,103 @@
+.countries-table {
+  table {
+    width: 85vw;
+    background-color: white;
+  }
+  th,
+  td {
+    padding: 5px;
+    border: 1px solid #dddddd;
+  }
+
+  th {
+    position: -webkit-sticky; // this is for all Safari (Desktop & iOS), not for Chrome
+    position: sticky;
+    top: 0;
+    z-index: 7;
+    font-weight: bold;
+    color: #666666;
+    background-color: white;
+  }
+
+  td {
+    font-weight: 500;
+  }
+
+  th:nth-child(2) {
+    width: 150px;
+  }
+
+  td:not(:nth-child(2)) {
+    text-align: right;
+  }
+
+  th:not(:first-child) {
+    &::after {
+      float: right;
+      opacity: 0.2;
+      content: "\21C5";
+      margin-right: 7px;
+    }
+  }
+
+  .asc-class:not(:first-child) {
+    &::after {
+      float: right;
+      opacity: 0.2;
+      content: "\21C8";
+      margin-right: 7px;
+    }
+  }
+
+  .desc-class:not(:first-child) {
+    &::after {
+      float: right;
+      opacity: 0.2;
+      content: "\21CA";
+      margin-right: 7px;
+    }
+  }
+
+  .today-deaths {
+    background-color: red;
+    color: white;
+  }
+
+  .today-cases {
+    background-color: #ffeeaa;
+  }
+
+  .country-btns {
+    color: #337ab7;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .total-world-row {
+    text-align: right;
+    background-color: #DFDFDF !important;
+    color: #363945 !important;
+    font-weight: normal !important;
+  }
+
+  .tab-links{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: transparent;
+  }
+
+  .selected-tab-links {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #6C757D !important;
+    color: white;
+  }
+
+  input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+
+}

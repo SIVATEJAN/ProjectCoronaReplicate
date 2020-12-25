@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.f-20 {
+  font-size: 20px;
+}
+
+.dark-grey-color {
+  color: darkgray;
+}
+
+.label {
+  font-family: roboto condensed,sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #555555;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.label-value {
+  color: #6e6868;
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+}

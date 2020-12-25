@@ -1,0 +1,102 @@
+<div class="countries-table container mt-4" *ngIf="countriesData">
+  <div class="search-container text-right mb-3">
+    <input type="text" placeholder="Search country.." name="search" (keyup)="onChangeEvent($event)" />
+  </div>
+  <div class="tab">
+    <ng-container *ngFor="let continent of continentsList">
+      <button
+        [ngClass]="
+          continent.isSelected
+            ? 'selected-tab-links btn btn-light btn-sm mr-3'
+            : 'tab-links btn btn-light btn-sm mr-3'
+        "
+        (click)="continentSelectedInList(continent.continentName)"
+      >
+        {{ continent.continentName }}
+      </button>
+    </ng-container>
+  </div>
+  <table class="">
+    <tr>
+      <ng-container *ngFor="let header of countryHeaders">
+        <th
+          (click)="headerSortingLinked(header.property)"
+          [ngClass]="
+            header.sort === 'asc'
+              ? 'asc-class'
+              : header.sort === 'desc'
+              ? 'desc-class'
+              : ''
+          "
+        >
+          <span *ngIf="header.name.split('/').length === 2">
+            {{ header.name.split("/")[0] + "/" }} <br />
+            {{ header.name.split("/")[1] }}
+          </span>
+          <span *ngIf="header.name.split('/').length !== 2">
+            {{ header.name.split(" ")[0] + " " }} <br />
+            {{ header.name.split(" ")[1] }}
+          </span>
+        </th>
+      </ng-container>
+    </tr>
+    <tr class="total-world-row" *ngIf="getContinentName() === 'All'">
+      <ng-container *ngFor="let header of countryHeaders">
+        <td *ngIf="header.property === 'country'" class="text-left pl-3">World</td>
+        <td *ngIf="header.property !== 'country'">
+          {{ overallView[header.property] | number }}
+        </td>
+      </ng-container>
+    </tr>
+    <tr class="total-world-row" *ngIf="getContinentName() !== 'All'">
+      <ng-container *ngFor="let header of countryHeaders">
+        <td *ngIf="header.property === 'country'" class="text-left pl-3">
+          {{ getContinentName() }}
+        </td>
+        <td *ngIf="header.property !== 'country'">
+          {{ continentOverAllView[header.property] | number }}
+        </td>
+      </ng-container>
+    </tr>
+    <tr *ngFor="let country of countriesData; let indexOfCountry = index">
+      <ng-container *ngFor="let header of countryHeaders">
+        <td
+          [ngClass]="
+            header.property === 'todayDeaths' && country[header.property]
+              ? 'today-deaths'
+              : header.property === 'todayCases' && country[header.property]
+              ? 'today-cases'
+              : ''
+          "
+        >
+          <div *ngIf="header.property === 'index'">
+            {{ indexOfCountry + 1 }}
+          </div>
+          <div
+            *ngIf="
+              (header.property === 'todayDeaths' ||
+                header.property === 'todayCases') &&
+              country[header.property]
+            "
+          >
+            +{{ country[header.property] | number }}
+          </div>
+          <div
+            *ngIf="
+              header.property !== 'todayDeaths' &&
+              header.property !== 'todayCases' &&
+              header.property !== 'country'
+            "
+          >
+            {{ country[header.property] | number }}
+          </div>
+          <div *ngIf="header.property == 'country'">
+            <button class="btn btn-link text-left country-btns">
+              {{ country[header.property] }}
+            </button>
+          </div>
+        </td>
+      </ng-container>
+    </tr>
+  </table>
+</div>

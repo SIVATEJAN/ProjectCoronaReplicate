@@ -1,0 +1,18 @@
+
+<app-overview
+  [overallView]="overallView"
+  [updatedDate]="updatedDate"
+  [closedCases]="closedCases"
+  [mildCases]="mildCases"
+></app-overview>
+
+<app-covid-table
+  [countriesData]="countriesData"
+  [duplicateCountriesData]="countriesData"
+  [overallView]="overallView"
+  [continentsData]="continentsData"
+  [continentsList]="continentsList"
+  [continentOverAllView]="continentOverAllView"
+  (continentSelected)="continentSelected($event)"
+></app-covid-table>
+
